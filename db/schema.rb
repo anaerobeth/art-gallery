@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20130919210058) do
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.string   "email",      null: false
     t.integer  "phone"
     t.string   "birthplace"
     t.string   "art_style"
@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 20130919210058) do
   end
 
   create_table "artworks", force: true do |t|
-    t.integer  "artist_id"
+    t.integer  "artist_id",                   null: false
     t.date     "date_created"
     t.date     "date_on_sale"
-    t.decimal  "sale_price"
-    t.integer  "category_id"
-    t.boolean  "available"
+    t.decimal  "sale_price",                  null: false
+    t.integer  "category_id",                 null: false
+    t.boolean  "available",    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20130919210058) do
   end
 
   create_table "customers", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
+    t.string   "first_name",   null: false
+    t.string   "last_name",    null: false
+    t.string   "email",        null: false
     t.integer  "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
